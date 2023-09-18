@@ -3,6 +3,7 @@ class Phone{
     private $brand;
     private $model;
     private $applications;
+    private $defaultApplications;
 
     public function __construct($brand, $model){ // kurucu fonksiyon
         $this->brand = $brand;
@@ -33,20 +34,29 @@ class Phone{
             //echo $applicationName .' uygulaması bulunamadı.';
         //}
 
-        $index = array_search($applicationName, $this->applications);
+        foreach ($this->applications as $key => $application) {
+            if($application->getName() == $applicationName) {
+                //sil
+                echo $applicationName . ' silindi. Bu uygulamanın indexi: ' . $key;
+
+                array_splice($this->applications, $key, 1);
+            }
+        }
+
+        /*$index = array_search($applicationName, $this->applications);
         if ($index !== false)
-            array_splice($this->applications, $index, 1);
+            array_splice($this->applications, $index, 1);*/
     }
 
     public function getApplications() {
-        return $this->applications;
+        return array_merge($this->defaultApplications, $this->applications);
     }
 
     private function setDefaultApplications() {
         $application1 = new Application('Kamera', 250);
         $application2 = new Application('Galeri', 200);
 
-        $this->applications[] = $application1;
-        $this->applications[] = $application2;
+        $this->defaultApplications[] = $application1;
+        $this->defaultApplications[] = $application2;
     }
 }

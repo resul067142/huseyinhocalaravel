@@ -4,8 +4,8 @@ $items = ['Instagram', 'Facebook', 'X'];
 
 // print_r($items);
 
-foreach ($items as $item) {
-    echo $item;
+foreach ($items as $index => $item) {
+    echo $index . ' - ' .$item;
     echo '<br>';
 }
 

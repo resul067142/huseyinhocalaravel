@@ -13,14 +13,12 @@ $phone1->downloadApplication($application1);
 $phone1->downloadApplication($application2);
 $phone1->downloadApplication($application3);
 
+$phone1->removeApplication('Udemy');
+
 $phone1Applications = $phone1->getApplications();
 
 echo '<h4>Uygulamalar</h4>';
-foreach ($phone1Applications as $application) {
-    echo 'Name: ' . $application->getName() .
-         ' - Size: ' . $application->getSize();
-    echo '<br>';
-}
+showApplications($phone1Applications);
 
 
 $phone2 = new Phone('iPhone', '14');
@@ -28,13 +26,14 @@ echo '<br>';
 echo '<h4>Uygulamalar 2</h4>';
 $phone2Applications = $phone2->getApplications();
 
-foreach ($phone2Applications as $application) {
-    echo 'Name: ' . $application->getName() .
-        ' - Size: ' . $application->getSize();
-    echo '<br>';
-}
+showApplications($phone2Applications);
 
 // @todo uygulamaların listelenmesi fonksiyon haline getirilecek
 function showApplications($applications) {
     // @todo
+    foreach ($applications as $application) {
+        echo 'Name: ' . $application->getName() .
+            ' - Size: ' . $application->getSize();
+        echo '<br>';
+    }
 }

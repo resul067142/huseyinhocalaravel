@@ -1,10 +1,10 @@
 <?php
 
-include './Models/Phone.php';
+include './Models/Phone.php'; // Phone sınıfını dahil et
 
-$phone1 = new Phone('Samsung', 'A53');
-$phone1Informations = $phone1->getInformations();
-echo $phone1Informations;
+$phone1 = new Phone('Samsung', 'A53'); // Phone sınıfından bir nesne oluşturduk.
+$phone1Informations = $phone1->getInformations();  // getInformations fonksiyonunu çağırdık.
+echo $phone1Informations;   //
 
 echo '<br>';
 $phone2 = new Phone('iPhone', '15');
