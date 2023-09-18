@@ -31,4 +31,10 @@ class Plane extends Vehicle{
         echo $message;
         echo '<br>';
     }
+
+    public function moving()
+    {
+        echo 'Taksi yapıyorum... ';
+        echo '<br>';
+    }
 }

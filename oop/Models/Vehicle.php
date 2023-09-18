@@ -1,6 +1,6 @@
 <?php
 
-class Vehicle{
+abstract class Vehicle{
     protected $brand;
 
     protected $model;
@@ -15,4 +15,6 @@ class Vehicle{
         echo 'Marka: ' . $this->brand . ' Model: ' . $this->model;
         echo '<br>';
     }
+
+    public abstract function moving();
 }
