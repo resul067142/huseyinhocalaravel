@@ -13,4 +13,8 @@ class Lesson {
     public function getName() {
         return $this->name;
     }
+
+    public function getCredit() {
+        return $this->credit;
+    }
 }

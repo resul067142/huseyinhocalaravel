@@ -1,6 +1,6 @@
 <?php
 
-class Student extends Person implements Loggable {
+class Student extends Person implements Loggable, Printable {
     private $studentNumber;
     public function getInformations() {
         return $this->name . ' ' . $this->surname . ' - TC: ' .$this->tc;
@@ -19,5 +19,22 @@ class Student extends Person implements Loggable {
     {
         echo 'Ben öğrenci loguyum..';
         // TODO: Implement writeLog() method.
+
+        $file = fopen( __DIR__ . '/log.txt', 'a');
+        fwrite($file, date("Y-m-d H:i:s") . ' '
+            . $this->name . ' ' . $this->surname. "\n");
+        fclose($file);
+    }
+
+    public function sendPrinter()
+    {
+        echo '<br>';
+        echo $this->name . ' ' . $this->surname .
+            ' TC: ' . $this->tc;
+        echo '<br>';
+        echo '<br>';
+        foreach ($this->lessons as $l) {
+            echo $l->getName() . ' Kredi: ' . $l->getCredit();
+        }
     }
 }
